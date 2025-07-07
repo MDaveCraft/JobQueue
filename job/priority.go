@@ -1,10 +1,13 @@
 package job
 
+import "errors"
+
 type Priority int
 
+var ErrPriority = errors.New("invalid priority value")
+
 const (
-	DefaultPriority Priority = 6
-	HighPriority    Priority = 1
-	MediumPriority  Priority = 5
-	LowPriority     Priority = 10
+	HighPriority Priority = iota + 1 
+	MediumPriority
+	LowPriority
 )

@@ -13,6 +13,10 @@ const (
 	defaultSize = 21
 )
 
+var (
+	ErrFailedToGenerateID = errors.New("failed to generate unique ID")
+)
+
 /*
 	getMask generates bit mask used to obtain bits from the random bytes that are used to get index 
 	of random character from the alphabet. 
@@ -32,6 +36,7 @@ func getMask(alphabetSize int) int {
 
 // Generate is a low-level function to change alphabet and ID size.
 func Generate(alphabet string, size int) (string, error) {
+
 	chars := []rune(alphabet)
 
 	mask := getMask(len(chars))
